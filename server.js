@@ -1,6 +1,7 @@
 // Import dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const notesRoutes = require('./routes/notes');
 
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json()); // Parse JSON bodies
+app.use(cors()); // Enable CORS for all routes
 
 // Routes
 app.use('/notes', notesRoutes);
